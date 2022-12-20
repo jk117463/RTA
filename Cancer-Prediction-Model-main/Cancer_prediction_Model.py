@@ -13,11 +13,11 @@ names =['Age','DryCough','Smoking','BalancedDiet','Alcohol','Obesity','Outcome']
 dataframe = pd.read_csv(filename,names = names)
 array = dataframe.values
 x=array[1:,:6]
+print(x)
 y=array[1:,6]
-scaler = MinMaxScaler(feature_range=(0,1))
-rescaledX =scaler.fit_transform(x)
-test_size=0.4
-seed = 7
+print(y)
+test_size=0.3
+seed = 8
 x_train,x_test,y_train,y_test = train_test_split(x ,y ,test_size = test_size,random_state=seed)
 model =LogisticRegression(solver='liblinear')
 model.fit(x_train,y_train)
