@@ -8,7 +8,7 @@ myfile = 'CancerPredictonModel.pkl'
 filename = os.path.join(mydir, myfile)
 model = pickle.load(open(filename,'rb'))
 
-def predict_diabetes(age,drycough,smoking,balanceddiet,alcohol,obesity):
+def predict_cancer(age,drycough,smoking,balanceddiet,alcohol,obesity):
     input = np.array([[age,drycough,smoking,balanceddiet,alcohol,obesity]]).astype(np.float64)
     prediction = model.predict(input)
     return float(prediction)
@@ -40,7 +40,7 @@ def main():
     """
 
     if st.button("Predict"):
-        output=predict_diabetes(age,drycough,fatigue,balanceddiet,alcohol,obesity)
+        output=predict_cancer(age,drycough,fatigue,balanceddiet,alcohol,obesity)
         if not output >0.5:
             a ="Low probability for Cancer"
         else:
